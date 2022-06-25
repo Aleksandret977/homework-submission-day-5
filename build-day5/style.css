@@ -1,0 +1,87 @@
+h1 {
+    text-align: center;
+    margin-top: 5rem;
+  }
+  .board-container {
+    /* centers element in the center of the page */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -200px;
+    margin-top: -200px;
+
+    border: 1px solid black;
+
+    /* trick to remove spacing between divs with inline block */
+    font-size: 0;
+  }
+
+  .row div {
+    height: 50px;
+    width: 50px;
+    display: inline-block;
+    background-color: #b09069;
+  }
+  /* targets odd divs in even rows */
+  .row:nth-child(2n) div:nth-child(2n + 1),
+  
+  /* targets odd divs in even rows */
+  .row:nth-child(2n + 1) div:nth-child(2n) {
+    background-color: black;
+  }
+
+  .row div:hover {
+    background-color: red !important;
+  }
+  .row div {
+    position: relative;
+  }
+  .row div span {
+    position: absolute;
+    font-size: 1rem;
+  }
+  /* targets FIRST span in ALL divs of the FIRST row */
+  .row:first-of-type div span:first-of-type {
+    left: 19px;
+    top: -20px;
+  }
+
+  /* targets SECOND span in FIRST div of the FIRST row */
+  .row:first-of-type div:first-of-type span:nth-child(2) {
+    top: 19px;
+    left: -20px;
+  }
+
+  /* targets SECOND span in LAST div of the FIRST row */
+  .row:first-of-type div:last-of-type span:nth-child(2) {
+    top: 19px;
+    right: -20px;
+  }
+
+  /* targets FIRST div span in ALL rows EXCEPT first and last row */
+  .row:not(:first-of-type):not(:last-of-type) div:first-of-type span {
+    top: 19px;
+    left: -20px;
+  }
+  /* targets LAST div span in all rows EXCEPT first row and last row*/
+  .row:not(:first-of-type):not(:last-of-type) div:last-of-type span {
+    top: 19px;
+    right: -20px;
+  }
+
+  /* targets second span of all divs in last row*/
+  .row:last-of-type div span:nth-child(1) {
+    bottom: -20px;
+    left: 19px;
+  }
+
+  /* targets second span of first div in last row*/
+  .row:last-of-type div:first-of-type span:nth-child(2) {
+    top: 19px;
+    left: -20px;
+  }
+  /* targets second span of last div in last row*/
+  .row:last-of-type div:last-of-type span:nth-child(2) {
+    top: 19px;
+    right: -20px;
+  }
